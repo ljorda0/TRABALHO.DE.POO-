@@ -1,9 +1,14 @@
-package agencia.negocio;
+package agencia.ui;
 
 import java.util.Scanner;
 
+import agencia.negocio.Agencia;
 import agencia.negocio.Alienigena;
+import agencia.negocio.Ciborgue;
 import agencia.negocio.Heroi;
+import agencia.negocio.Mutante;
+import agencia.negocio.Vilao;
+import agencia.negocio.habilidade;
 
 public class Main {
 	private static final Scanner entrada = new Scanner(System.in);
