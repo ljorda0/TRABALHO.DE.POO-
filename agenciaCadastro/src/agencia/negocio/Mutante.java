@@ -1,13 +1,11 @@
 package agencia.negocio;
 
 public class Mutante extends Heroi{
-    private String cidade;
     //Mutante ja nasce com as devidas habilidades, mas eh importante saber quando os mesmos surgiram.
     private int idadePoderes;
 
-    public Mutante(String nome, String habilidades, String sexo, int nivelAmeaca, int nivelPoder, String cidade, int idadePoderes){
-        super(nome,  habilidades, sexo, nivelAmeaca, nivelPoder);
-        this.cidade = cidade;
+    public Mutante(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, int idadePoderes){
+        super(nome,  habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
         this.idadePoderes = idadePoderes;
     }
 
@@ -20,17 +18,17 @@ public class Mutante extends Heroi{
     }
 
     public String getCidade() {
-        return cidade;
+        return localidade;
     }
 
     public void setCidade(String cidade) {
-        this.cidade = cidade;
+        this.localidade = cidade;
     }
 
     @Override
     public String toString(){
         return super.toString() +
-                "\nCidade: "+cidade+
+                "\nCidade: "+localidade+
                 "\nIdade do surgimento dos poderes: "+idadePoderes;
     }
 }

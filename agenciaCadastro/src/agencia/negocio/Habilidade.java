@@ -1,10 +1,10 @@
 package agencia.negocio;
 
-public class habilidade {
+public class Habilidade {
 	private String nome;
 	private int dano; //0..100
 	
-	public habilidade(String nome, int dano) {
+	public Habilidade(String nome, int dano) {
 		this.nome = nome;
 		this.dano = dano;
 	}

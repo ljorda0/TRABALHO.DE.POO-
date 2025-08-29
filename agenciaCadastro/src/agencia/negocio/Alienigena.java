@@ -1,13 +1,11 @@
 package agencia.negocio;
 
 public class Alienigena extends Heroi{
-    private String planetaNatal;
-    //Saber pq um alienigena esta no nosso planeta eh sempre importante :)
+    //Saber pq um alienigena esta no nosso planeta eh sempre importante
     private String causaDaVinda;
 
-    public Alienigena(String nome, String habilidades, String sexo, int nivelAmeaca, int nivelPoder, String planetaNatal, String causaDaVinda){
-        super(nome, habilidades, sexo, nivelAmeaca, nivelPoder);
-        this.planetaNatal = planetaNatal;
+    public Alienigena(String nome, String habilidades, String sexo, String planetaNatal,int nivelAmeaca, int nivelPoder, String causaDaVinda){
+        super(nome, habilidades, sexo, planetaNatal, nivelAmeaca, nivelPoder);
         this.causaDaVinda = causaDaVinda;
     }
 
@@ -16,20 +14,20 @@ public class Alienigena extends Heroi{
     }
 
     public void setCausaDaVinda(String causaDaVinda) {
-        causaDaVinda = causaDaVinda;
+        this.causaDaVinda = causaDaVinda;
     }
 
     public String getPlanetaNatal() {
-        return planetaNatal;
+        return localidade;
     }
 
     public void setPlanetaNatal(String planetaNatal) {
-        this.planetaNatal = planetaNatal;
+        this.localidade = planetaNatal;
     }
     @Override
     public String toString(){
         return super.toString() +
-                "\nPlaneta de origem: "+planetaNatal+
+                "\nPlaneta de origem: "+localidade+
                 "\notivo de sua vinda a Terra: "+causaDaVinda;
     }
 

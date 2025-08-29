@@ -6,15 +6,16 @@ import agencia.negocio.Agencia;
 import agencia.negocio.Alienigena;
 import agencia.negocio.Ciborgue;
 import agencia.negocio.Heroi;
+import agencia.negocio.MetaHumano;
 import agencia.negocio.Mutante;
 import agencia.negocio.Vilao;
-import agencia.negocio.habilidade;
+import agencia.negocio.Habilidade;
 
 public class Main {
 	private static final Scanner entrada = new Scanner(System.in);
 	private static final Agencia agencia = new Agencia();
 	
-	public static void main(String)[] args) {
+	public static void main(String args[]) {
 		while (true) {
 			System.out.println("\n=== Agencia Interplanetária (Somente cadastro)===");
 			System.out.println("1) Cadastrar Herói");
@@ -30,32 +31,47 @@ public class Main {
 				switch (op) {
 				case "1" -> cadastrarHeroi();
 				case "2" -> cadastrarVilao();
-				case "3" -> agencia.getherois().forEach(System.out::printlin);
-				case "4" -> agencia.getViloes().forEach(System.out::printlin);
-				case"0" -> {System.out.println("Até mais!"); return; }
-				default -> System.out.println("Opçao inválida!");
+				case "3" -> agencia.getHerois().forEach(System.out::println);
+				case "4" -> agencia.getviloes().forEach(System.out::println);
+				case "0" -> {System.out.println("Até mais!"); return; }
+				default -> System.out.println("Opçao inválida!"); 
 				}
 			} catch (Exception e) {
-				System.out.println(" Eroo: "+ e.getMessage()); 
+				System.out.println(" Erro: "+ e.getMessage()); 
 			}
 		}
 	}
 	
 	// ======CADASTRO DE HERÓI======
-	private static void cadastraHeroi() {
+	private static void cadastrarHeroi() {
 		System.out.print("Nome: "); String nome = entrada.nextLine();
+		System.out.print("Tipo: "); String tipo = entrada.nextLine();
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
-		System.out.print("Localidade: "); String localidade = entrada.nextLine();
-		System.out.print("Fraqueza: "); String fraqueza = entrada.nextLine();
+		System.out.print("Sexo: "); String sexo = entrada.nextLine();
 		System.out.print("Nivel de poder (1 a 5): "); int nivelPoder = Integer.parseInt(entrada.nextLine());
 		System.out.print("Nivel de Ameaça (0 a 5): "); int nivelAmeaca = Integer.parseInt(entrada.nextLine());
-		
+		String localidade;
 		
 		switch (tipo) {
-		case "mutante" -> new Mutante(nome, poder, localidade, fraqueza, nivelPoder, nivelAmeaca);
-		case "Alienigina" -> new Alienigena(nome, poder, localidade, fraqueza, nivelPoder, nivelAmeaca);
-		case "ciborgue" -> new Ciborgue(nome, poder, localidade, fraqueza, nivelPoder, nivelAmeaca);
-		case "heroi" -> new Metahumano(nome, poder, localidade, fraqueza, nivelPoder, nivelAmeaca);
+		case "mutante" :
+			System.out.print("Cidade: "); localidade = entrada.nextLine();
+			System.out.print("Idade de descoberta dos poderes: "); int idadeDescobertaPoderes = entrada.nextInt();
+			new Mutante(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
+			break;
+		case "alienigena" :
+			System.out.print("Planeta natal: "); localidade = entrada.nextLine();
+			System.out.print("Causa da vinda do alien: "); String causaVinda = entrada.nextLine();
+			new Alienigena(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaVinda);
+		case "ciborgue" :
+			System.out.print("Cidade: "); localidade = entrada.nextLine();
+			System.out.print("Partes modificadas do corpo do ciborgue: "); String partesModificadas = entrada.nextLine();
+			new Ciborgue(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, partesModificadas);
+			break;
+		case "metaHumano" :
+			System.out.print("Cidade: "); localidade = entrada.nextLine();
+			System.out.print("Causa dos poderes do meta-humano"); String causaPoderes = entrada.nextLine();
+			new MetaHumano(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaPoderes);	
+			break;
 	}
 		
 	while (true){

@@ -4,13 +4,15 @@ public class Heroi {
     protected String nome;
     protected String habilidades;
     protected String sexo;
+    protected String localidade;
     protected int nivelAmeaca;
     protected int nivelPoder;
 
-    public Heroi(String nome, String habilidades, String sexo, int nivelAmeaca, int nivelPoder) {
+    public Heroi(String nome, String habilidades, String sexo, String localidade, int nivelAmeaca, int nivelPoder) {
         this.nome = nome;
         this.habilidades = habilidades;
         this.sexo = sexo;
+        this.localidade = localidade;
         this.nivelAmeaca = nivelAmeaca;
         this.nivelPoder = nivelPoder;
     }
@@ -36,7 +38,7 @@ public class Heroi {
     }
 
     public void setSexo(String sexo) {
-        sexo = sexo;
+        this.sexo = sexo;
     }
 
     public String getHabilidades() {

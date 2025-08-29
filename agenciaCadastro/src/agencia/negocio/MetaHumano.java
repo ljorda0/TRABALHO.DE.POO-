@@ -1,22 +1,20 @@
 package agencia.negocio;
 
 public class MetaHumano extends Heroi{
-    private String cidade;
     //Meta-Humanos adquirem seus poderes apos o nascimento, acidente, picada de inseto radiotivo etc.
     private String causaPoderes;
 
-    public MetaHumano(String nome, String habilidades, String sexo, int nivelAmeaca, int nivelPoder, String cidade, String causaPoderes) {
-        super(nome, habilidades, sexo, nivelAmeaca, nivelPoder);
-        this.cidade = cidade;
+    public MetaHumano(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String causaPoderes) {
+        super(nome, habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
         this.causaPoderes = causaPoderes;
     }
 
     public String getCidade() {
-        return cidade;
+        return localidade;
     }
 
     public void setCidade(String cidade) {
-        this.cidade = cidade;
+        this.localidade = cidade;
     }
 
     public String getCausaPoderes() {
@@ -29,7 +27,7 @@ public class MetaHumano extends Heroi{
     @Override
     public String toString(){
         return super.toString() +
-                "\nCidade: " + cidade +
+                "\nCidade: " + localidade +
                 "\nCausa: " + causaPoderes;
     }
 }
