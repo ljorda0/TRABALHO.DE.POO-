@@ -1,15 +1,17 @@
+package agencia.negocio;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class minigameHerois {
-    private heroi h1;
-    private heroi h2;
+public class MinigameHerois {
+    private Heroi h1;
+    private Heroi h2;
     private int vidaH1;
     private int vidaH2;
     private boolean defendendoH1 = false;
     private boolean defendendoH2 = false;
 
-    public minigameHerois(heroi h1, heroi h2) {
+    public MinigameHerois(Heroi h1, Heroi h2) {
         this.h1 = h1;
         this.h2 = h2;
         this.vidaH1 = h1.getNivelPoder() * 20;
