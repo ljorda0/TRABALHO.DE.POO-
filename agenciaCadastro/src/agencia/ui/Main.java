@@ -20,21 +20,20 @@ public class Main {
 			System.out.println("\n=== Agencia Interplanetária (Somente cadastro)===");
 			System.out.println("1) Cadastrar Herói");
 			System.out.println ("2) Cadastrar Vilao");
-			System.out.println ("3) Listar heóis ");
-			System.out.println ("4) Listar viloes");
-			System.out.println("4) Listar viloes");
+			System.out.println ("3) Listar Heróis");
+			System.out.println ("4) Listar Vilões");
 			System.out.println ("0) sair");
 			System.out.println ("Escolha: ");
 			String op = entrada.nextLine().trim();
 			
 			try {
 				switch (op) {
-				case "1" -> cadastrarHeroi();
-				case "2" -> cadastrarVilao();
-				case "3" -> agencia.getHerois().forEach(System.out::println);
-				case "4" -> agencia.getviloes().forEach(System.out::println);
-				case "0" -> {System.out.println("Até mais!"); return; }
-				default -> System.out.println("Opçao inválida!"); 
+					case "1" -> cadastrarHeroi();
+					case "2" -> cadastrarVilao();
+					case "3" -> agencia.getHerois().forEach(System.out::println);
+					case "4" -> agencia.getviloes().forEach(System.out::println);
+					case "0" -> {System.out.println("Até mais!"); return; }
+					default -> System.out.println("Opçao inválida!");
 				}
 			} catch (Exception e) {
 				System.out.println(" Erro: "+ e.getMessage()); 
@@ -52,83 +51,67 @@ public class Main {
 		System.out.print("Nivel de Ameaça (0 a 5): "); int nivelAmeaca = Integer.parseInt(entrada.nextLine());
 		String localidade;
 		
-		switch (tipo) {
-		case "mutante" :
-			System.out.print("Cidade: "); localidade = entrada.nextLine();
-			System.out.print("Idade de descoberta dos poderes: "); int idadeDescobertaPoderes = entrada.nextInt();
-			new Mutante(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
-			break;
-		case "alienigena" :
-			System.out.print("Planeta natal: "); localidade = entrada.nextLine();
-			System.out.print("Causa da vinda do alien: "); String causaVinda = entrada.nextLine();
-			new Alienigena(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaVinda);
-		case "ciborgue" :
-			System.out.print("Cidade: "); localidade = entrada.nextLine();
-			System.out.print("Partes modificadas do corpo do ciborgue: "); String partesModificadas = entrada.nextLine();
-			new Ciborgue(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, partesModificadas);
-			break;
-		case "metaHumano" :
-			System.out.print("Cidade: "); localidade = entrada.nextLine();
-			System.out.print("Causa dos poderes do meta-humano"); String causaPoderes = entrada.nextLine();
-			new MetaHumano(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaPoderes);	
-			break;
-	}
+		//modificações nas clases de heróis
+		Heroi heroi = switch (tipo.toLowerCase()) {
+		    case "mutante" -> {
+		        System.out.print("Cidade: ");
+		        localidade = entrada.nextLine();
+		        System.out.print("Idade de descoberta dos poderes: ");
+		        int idadeDescobertaPoderes = entrada.nextInt();
+		        entrada.nextLine();
+		        yield new Mutante(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
+		    }
+		    case "alienigina" -> {
+		        System.out.print("Planeta natal: ");
+		        localidade = entrada.nextLine();
+		        System.out.print("Causa da vinda do alien: ");
+		        String causaVinda = entrada.nextLine();
+		        yield new Alienigena(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaVinda);
+		    }
+		    case "ciborgue" -> {
+		        System.out.print("Cidade: ");
+		        localidade = entrada.nextLine();
+		        System.out.print("Partes modificadas do corpo do ciborgue: ");
+		        String partesModificadas = entrada.nextLine();
+		        yield new Ciborgue(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, partesModificadas);
+		    }
+		    case "metahumano" -> {
+		        System.out.print("Cidade: ");
+		        localidade = entrada.nextLine();
+		        System.out.print("Causa dos poderes do meta-humano: ");
+		        String causaPoderes = entrada.nextLine();
+		        yield new MetaHumano(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaPoderes);
+		    }
+		    default -> null;
+		};
+
+		if (heroi != null) {
+		    agencia.adicionarHeroi(heroi);
+		} else {
+		    System.out.println("Tipo inválido! Não foi possível cadastrar.");
+		}
 		
-	while (true){
-		System.out.print("Adicionar habilidade? (s/n): ");
-		String resp = entrada.nextLine().trim().toLowerCase();
-		if (!resp.equals("s")) break;
+		System.out.println("Herói cadastrado com sucesso: " + heroi);
 		
-		System.out.print("Nome da habilidade: ");
-		String nomeHab = entrada.nextLine();
-		System.out.print("Dano (0 a 100): ");
-		int dano = Integer.parseInt(entrada.nextLine());
-		
-		heroi.adicinarHabilidade(new habilidade(nomeHab, dano));
 	}
-	
-	agencia.adicionarheroi(heroi);
-	System.out.println("Herói cadastrado com sucesso: " + heroi);
-	if (heroi.getNivelAmeaca() >= 2)
-		System.out.println("Entrou na lista de monitoramento.");
-	else
-		System.out.println("Entrou na lista de pronto para missao");
-	}
-	
 	
 	///====== CADASTRO DE VILAO ======
 	
 	private static void cadastrarVilao() {
-		System.out.println("=== Cadastro de Vilao ===");
 		System.out.print("Nome: "); String nome = entrada.nextLine();
+		System.out.print("Cidade: "); String localidade = entrada.nextLine();
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
-		System.out.print("Localidade: "); String localidade = entrada.nextLine();
-		System.out.print("Fraqueza: "); String fraqueza = entrada.nextLine();
+		System.out.print("Sexo: "); String sexo = entrada.nextLine();
 		System.out.print("Nivel de poder (1 a 5): "); int nivelPoder = Integer.parseInt(entrada.nextLine());
-		System.out.print("Nivel de Ameaça (0 a 5): "); int nivelAmeaca = Integer.parseInt(entrada.nextLine());
+		 
+		Vilao vilao = new Vilao (nome, poder, sexo, localidade, nivelPoder);
 		
-		Vilao vilao = new vilao(nome, poder, localidade, fraqueza, nivelPoder nivelAmeaca);
+		agencia.adicionarVilao(vilao);
 		
-	while (true) {
-		System.out.print("Adicionar habilidade? (s/n): ");
-		String resp = entrada.nextLine().trim().toLowerCase();
-		if (!resp.equals("s")) break;
+		System.out.println("Vilão cadastrado com sucesso: " + vilao);
 		
-		System.out.print("Nome da habilidade: ");
-		String nomeHab = entrada.nextLine();
-		System.out.print("Dano (0 a 100): ");
-		int dano = Integer.parseInt(entrada.nextLine());
-		
-		vilao.adicinarHabilidade(new habilidade(nomeHab, dano));
-	}
-		
-	agencia.adicionarVilao(vilao);
-	System.out.println("vilao cadastrado com sucesso: " + vilao);
-	if (vilao.getNivelAmeaca() >= 3)
-		System.out.println("Nivel de ameça alto - PERIGO.");
 	}
 	
-	}
 		
 	
 	
