@@ -17,6 +17,7 @@ public class Main {
 	
 	public static void main(String args[]) {
 		while (true) {
+			
 			System.out.println("\n=== Agencia Interplanetária (Somente cadastro)===");
 			System.out.println("1) Cadastrar Herói");
 			System.out.println ("2) Cadastrar Vilao");
@@ -30,18 +31,26 @@ public class Main {
 				switch (op) {
 					case "1" -> cadastrarHeroi();
 					case "2" -> cadastrarVilao();
-					case "3" -> agencia.getHerois().forEach(System.out::println);
-					case "4" -> agencia.getviloes().forEach(System.out::println);
+					case "3" -> {
+						agencia.getHerois().forEach(System.out::println);
+						entrada.nextLine();
+					}
+					case "4" -> {
+						agencia.getViloes().forEach(System.out::println);
+						entrada.nextLine();
+					}
 					case "0" -> {System.out.println("Até mais!"); return; }
 					default -> System.out.println("Opçao inválida!");
 				}
 			} catch (Exception e) {
 				System.out.println(" Erro: "+ e.getMessage()); 
 			}
+			
 		}
 	}
 	
-	// ======CADASTRO DE HERÓI======
+	//Cadastro HERÓI
+	
 	private static void cadastrarHeroi() {
 		System.out.print("Nome: "); String nome = entrada.nextLine();
 		System.out.print("Tipo: "); String tipo = entrada.nextLine();
@@ -87,15 +96,14 @@ public class Main {
 
 		if (heroi != null) {
 		    agencia.adicionarHeroi(heroi);
+		    System.out.println("Herói cadastrado com sucesso: " + heroi);
 		} else {
 		    System.out.println("Tipo inválido! Não foi possível cadastrar.");
 		}
 		
-		System.out.println("Herói cadastrado com sucesso: " + heroi);
-		
 	}
 	
-	///====== CADASTRO DE VILAO ======
+	//Cadastro VILÃO
 	
 	private static void cadastrarVilao() {
 		System.out.print("Nome: "); String nome = entrada.nextLine();
@@ -113,19 +121,6 @@ public class Main {
 	}
 	
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

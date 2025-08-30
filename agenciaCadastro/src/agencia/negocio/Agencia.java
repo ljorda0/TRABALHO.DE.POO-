@@ -29,7 +29,7 @@ public class Agencia {
 		return Collections.unmodifiableList(herois);
 	}
 	
-	public List<Vilao> getviloes(){
+	public List<Vilao> getViloes(){
 		return Collections.unmodifiableList(viloes);
 	
 		}
