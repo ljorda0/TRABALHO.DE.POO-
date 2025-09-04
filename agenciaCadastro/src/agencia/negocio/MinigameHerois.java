@@ -65,7 +65,7 @@ public class MinigameHerois {
             System.out.println(h.getNome() + " está defendendo!");
         } else if (acao1 == 3) { // Descansar / Healar
             int cura = h.getNivelPoder() * 2;
-            vidaH = Math.min(vidaH + cura, h.getNivelPoder() * 10);
+            vidaH = Math.min(vidaH + cura, h.getNivelPoder() * 20);
             System.out.println(h.getNome() + " descansou e recuperou " + cura + " de vida!");
         }
 
@@ -83,7 +83,7 @@ public class MinigameHerois {
             System.out.println(v.getNome() + " está defendendo!");
         } else if (acao2 == 3) { // Descansar / Healar
             int cura = v.getNivelPoder() * 2;
-            vidaV = Math.min(vidaV + cura, v.getNivelPoder() * 10);
+            vidaV = Math.min(vidaV + cura, v.getNivelPoder() * 20);
             System.out.println(v.getNome() + " descansou e recuperou " + cura + " de vida!");
         }
     }
