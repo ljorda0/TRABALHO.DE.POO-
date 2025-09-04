@@ -51,7 +51,7 @@ public class MinigameHerois {
     }
 
     private void processarAcoes(int acao1, int acao2) {
-        // Jogador 1
+        // Heroi
         if (acao1 == 1) { // Atacar
             int dano = h.getNivelPoder() * 2;
             if (defendendoV) {
@@ -69,7 +69,7 @@ public class MinigameHerois {
             System.out.println(h.getNome() + " descansou e recuperou " + cura + " de vida!");
         }
 
-        // Jogador 2
+        // Vilao
         if (acao2 == 1) { // Atacar 
             int dano = v.getNivelPoder() * 2;
             if (defendendoH) {
