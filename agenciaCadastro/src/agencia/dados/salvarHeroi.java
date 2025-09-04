@@ -1,28 +1,35 @@
-package  agnecia.dados;
-import negocio.*;
+package  agencia.dados;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
+import agencia.negocio.Heroi;
 
-public class Arquivo{
-    @Override
+public class salvarHeroi{
     public void inserirHeroi(Heroi heroi){
-        ArrayList<Heroi> heroi = this.lerHeroi();
-        if(heroi == null){
-            heroi = new ArrayList();
+        ArrayList<Heroi> herois = this.lerHeroi();
+        if(herois == null){
+            herois = new ArrayList();
         }
-        heroi.add(heroi);
+        herois.add(heroi);
         File file = new File("heroi.bin");
         FileOutputStream fileOut;
         try{
             fileOut = new FileOutputStream(file);
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(heroi);
+            objOut.writeObject(herois);
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-    private ArrayList<Heroi> lerHeroi(){
+	private ArrayList<Heroi> lerHeroi(){
         ArrayList<Heroi> heroi = null;
         File file = new File("heroi.bin");
         FileInputStream fileIn;

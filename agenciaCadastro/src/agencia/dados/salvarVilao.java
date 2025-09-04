@@ -1,20 +1,27 @@
-package  agnecia.dados;
-import negocio.*;
+package  agencia.dados;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import agencia.negocio.Vilao;
 
 public class salvarVilao {
-    @Override
     public void inserirVilao(Vilao vilao){
-        ArrayList<Vilao> vilao = this.lerVilao();
-        if(vilao == null){
-            vilao = new ArrayList();
+        ArrayList<Vilao> viloes = this.lerVilao();
+        if(viloes == null){
+            viloes = new ArrayList();
         }
-        vilao.add(vilao);
+        viloes.add(vilao);
         File file = new File("vilao.bin");
         FileOutputStream fileOut;
         try{
             fileOut = new FileOutputStream(file);
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(vilao);
+            objOut.writeObject(viloes);
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {

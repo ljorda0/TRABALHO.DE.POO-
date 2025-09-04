@@ -1,7 +1,7 @@
 package agencia.ui;
 
 import java.util.Scanner;
-
+import agencia.fachada.Fachada;
 import agencia.negocio.Agencia;
 import agencia.negocio.Alienigena;
 import agencia.negocio.Ciborgue;
@@ -13,7 +13,7 @@ import agencia.negocio.Habilidade;
 
 public class Main {
 	private static final Scanner entrada = new Scanner(System.in);
-	private static final Agencia agencia = new Agencia();
+	private static final Fachada fachada = new Fachada();
 	
 	public static void main(String args[]) {
 		while (true) {
@@ -33,12 +33,12 @@ public class Main {
 					case "1" -> cadastrarHeroi();
 					case "2" -> cadastrarVilao();
 					case "3" -> {
-						agencia.getHerois().forEach(System.out::println);
+						fachada.listarHerois().forEach(System.out::println);
 						System.out.println("\nPressione ENTER para continuar...");
 						entrada.nextLine();
 					}
 					case "4" -> {
-						agencia.getViloes().forEach(System.out::println);
+						fachada.listarViloes().forEach(System.out::println);
 						System.out.println("\nPressione ENTER para continuar...");
 						entrada.nextLine();
 					}
@@ -65,34 +65,28 @@ public class Main {
 		System.out.print("Nivel de Ameaça (0 a 5): "); int nivelAmeaca = Integer.parseInt(entrada.nextLine());
 		
 		//modificações nas clases de heróis
-		Heroi heroi = switch (tipo.toLowerCase()) {
-		    case "mutante" -> {
+		switch (tipo.toLowerCase()) {
+		    case "mutante": {
 		        System.out.print("Idade de descoberta dos poderes: ");
 		        int idadeDescobertaPoderes = Integer.parseInt(entrada.nextLine());
-		        yield new Mutante(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
+		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, idadeDescobertaPoderes);
 		    }
-		    case "alienigena" -> {
+		    case "alienigena": {
 		        System.out.print("Planeta natal: "); String planetaNatal = entrada.nextLine();
 		        System.out.print("Causa da vinda do alien: "); String causaVinda = entrada.nextLine();
-		        yield new Alienigena(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaVinda, planetaNatal);
+		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, planetaNatal, causaVinda);
 		    }
-		    case "ciborgue" -> {
+		    case "ciborgue": {
 		        System.out.print("Partes modificadas do corpo do ciborgue: "); String partesModificadas = entrada.nextLine();
-		        yield new Ciborgue(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, partesModificadas);
+		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, partesModificadas);
 		    }
-		    case "metahumano" -> {
+		    case "metahumano": {
 		        System.out.print("Causa dos poderes do meta-humano: "); String causaPoderes = entrada.nextLine();
-		        yield new MetaHumano(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaPoderes);
+		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, causaPoderes);
 		    }
-		    default -> null;
-		};
-
-		if (heroi != null) {
-		    agencia.adicionarHeroi(heroi);
-		    System.out.println("Herói cadastrado com sucesso: ");
-		} else {
-		    System.out.println("Tipo inválido! Não foi possível cadastrar.");
 		}
+
+		
 		
 	}
 	
@@ -105,10 +99,8 @@ public class Main {
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
 		System.out.print("Sexo: "); String sexo = entrada.nextLine();
 		System.out.print("Nivel de poder (1 a 5): "); int nivelPoder = Integer.parseInt(entrada.nextLine());
-		 
-		Vilao vilao = new Vilao (nome, poder, sexo, localidade, nivelPoder);
-		
-		agencia.adicionarVilao(vilao);
+		 		
+		fachada.cadastrarVilao(nome, localidade, poder, sexo, nivelPoder);
 		System.out.println("Vilão cadastrado com sucesso: ");
 		
 	}
