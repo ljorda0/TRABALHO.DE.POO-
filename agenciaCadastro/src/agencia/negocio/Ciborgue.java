@@ -1,7 +1,9 @@
 package agencia.negocio;
 
 public class Ciborgue extends Heroi{
-    // inserir quais partes do corpo foram modificadas ou o0s upgrades tecnologicos.
+	
+	// Herda da classe Heroi
+    // Inserir quais partes do corpo foram modificadas ou os upgrades tecnologicos.
     private String modificacoes;
     
     public Ciborgue(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String modificacoes) {

@@ -1,7 +1,8 @@
 package agencia.negocio;
 
 public class MetaHumano extends Heroi{
-    //Meta-Humanos adquirem seus poderes apos o nascimento, acidente, picada de inseto radiotivo etc.
+	// Herda da classe Heroi
+    // Meta-Humanos adquirem seus poderes apos o nascimento, acidente, picada de inseto radiotivo etc.
     private String causaPoderes;
 
     public MetaHumano(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String causaPoderes) {

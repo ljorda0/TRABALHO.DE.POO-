@@ -3,6 +3,8 @@ package agencia.negocio;
 import java.util.Random;
 import java.util.Scanner;
 
+	// Gerencia o minigame de batalha entre um heroi e um vilao implementando um sistema simples de turno.
+
 public class MinigameHerois {
     private Heroi h;
     private Vilao v;
@@ -14,6 +16,7 @@ public class MinigameHerois {
     public MinigameHerois(Heroi h, Vilao v) {
         this.h = h;
         this.v = v;
+        // Pontos de vida baseado no nível de poder do personagem.
         this.vidaH = h.getNivelPoder() * 20;
         this.vidaV = v.getNivelPoder() * 20;
     }
@@ -41,6 +44,7 @@ public class MinigameHerois {
             processarAcoes(acao1, acao2);
         }
 
+        // Resultado final da batalha, quem tiver com a vida <= 0, o outro ganha.
         if (vidaH <= 0 && vidaV <= 0) {
             System.out.println("Empate! Ambos caíram!");
         } else if (vidaH <= 0) {
@@ -50,11 +54,13 @@ public class MinigameHerois {
         }
     }
 
+    
+    //Aqui processa as ações escolhidas pelo jogador e pela CPU (1 - Atacar, 2 - Defender, 3 - Descansar / Recuperar vida)
     private void processarAcoes(int acao1, int acao2) {
-        // Heroi
+        // Ações do heroi
         if (acao1 == 1) { // Atacar
             int dano = h.getNivelPoder() * 2;
-            if (defendendoV) {
+            if (defendendoV) { // Se o vilão tava defendendo, reduz o dano causado pelo herói
                 dano /= 2;
                 defendendoV = false;
             }
@@ -65,14 +71,14 @@ public class MinigameHerois {
             System.out.println(h.getNome() + " está defendendo!");
         } else if (acao1 == 3) { // Descansar / Healar
             int cura = h.getNivelPoder() * 2;
-            vidaH = Math.min(vidaH + cura, h.getNivelPoder() * 20);
+            vidaH = Math.min(vidaH + cura, h.getNivelPoder() * 20); // Aqui impede de ultrapassar o maximo de vida quando descansando e recuperando HP
             System.out.println(h.getNome() + " descansou e recuperou " + cura + " de vida!");
         }
 
-        // Vilao
+        // Ações do vilão
         if (acao2 == 1) { // Atacar 
             int dano = v.getNivelPoder() * 2;
-            if (defendendoH) {
+            if (defendendoH) { // Se o heroi tava defendendo, reduz o dano causado pelo vilão
                 dano /= 2;
                 defendendoH = false;
             }
@@ -83,7 +89,7 @@ public class MinigameHerois {
             System.out.println(v.getNome() + " está defendendo!");
         } else if (acao2 == 3) { // Descansar / Healar
             int cura = v.getNivelPoder() * 2;
-            vidaV = Math.min(vidaV + cura, v.getNivelPoder() * 20);
+            vidaV = Math.min(vidaV + cura, v.getNivelPoder() * 20); // Aqui impede de ultrapassar o maximo de vida quando descansando e recuperando HP
             System.out.println(v.getNome() + " descansou e recuperou " + cura + " de vida!");
         }
     }

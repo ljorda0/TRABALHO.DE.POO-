@@ -2,6 +2,8 @@ package agencia.negocio;
 
 public abstract class Entidade {
 
+	
+	// Atributos que todas as entidades tem
 	protected String nome;
     protected String habilidades;
     protected String sexo;
@@ -44,6 +46,9 @@ public abstract class Entidade {
 		this.cidade = cidade;
 	}
     
+	
+	// Verifica se duas entidades são iguais (baseado no nome, habilidades e sexo)
+	// Retorna true se as entidades forem iguais
     @Override
     public boolean equals(Object obj){
         if(obj == this){return true;}

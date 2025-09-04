@@ -2,6 +2,7 @@ package agencia.negocio;
 
 public class Alienigena extends Heroi{
     //Saber pq um alienigena esta no nosso planeta eh sempre importante
+	//Herda da classe Heroi e adiciona o planeta natal do alien e o motivo da vinda pra terra
 	private String planetaNatal;
     private String causaDaVinda;
 

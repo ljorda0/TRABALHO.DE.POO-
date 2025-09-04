@@ -1,11 +1,13 @@
 package agencia.negocio;
 
+
+// Essa classe herda de Entidade e adiciona o nivel de poder do heroi.
 public class Heroi extends Entidade{
 	protected int nivelAmeaca;
 
     public Heroi(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder) {
         super (nome, habilidades, sexo, cidade, nivelPoder);
-        this.nivelAmeaca = nivelAmeaca;
+        this.nivelAmeaca = nivelAmeaca; // Ameaça do heroi, vai de 0 a 5.
     }
 
     public int getNivelAmeaca() {
@@ -16,6 +18,9 @@ public class Heroi extends Entidade{
         this.nivelAmeaca = nivelAmeaca;
     }
     
+    
+    
+    // Aqui verifica se dois herois são iguais, retorna true se eles forem iguais.
     @Override
     public boolean equals(Object obj){
         if(obj == this){return true;}

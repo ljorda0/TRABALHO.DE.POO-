@@ -1,6 +1,7 @@
 package agencia.negocio;
 
 public class Mutante extends Heroi{
+	// Herda da classe Heroi e adiciona informações sobre em que idade surgiram os poderes.
     //Mutante ja nasce com as devidas habilidades, mas eh importante saber quando os mesmos surgiram.
     private int idadePoderes;
 
