@@ -90,6 +90,8 @@ public class SalvarHeroiCSV {
                     herois.add(h);
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo de heróis ainda não existe. Será criado na primeira inserção.");
         } catch (IOException e) {
             e.printStackTrace();
         }
