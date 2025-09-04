@@ -66,24 +66,24 @@ public class Main {
 		
 		//modificações nas clases de heróis
 		switch (tipo.toLowerCase()) {
-		    case "mutante": {
+		    case "mutante": 
 		        System.out.print("Idade de descoberta dos poderes: ");
 		        int idadeDescobertaPoderes = Integer.parseInt(entrada.nextLine());
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, idadeDescobertaPoderes);
-		    }
-		    case "alienigena": {
+		        break;
+		    case "alienigena": 
 		        System.out.print("Planeta natal: "); String planetaNatal = entrada.nextLine();
 		        System.out.print("Causa da vinda do alien: "); String causaVinda = entrada.nextLine();
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, planetaNatal, causaVinda);
-		    }
-		    case "ciborgue": {
+		        break;
+		    case "ciborgue": 
 		        System.out.print("Partes modificadas do corpo do ciborgue: "); String partesModificadas = entrada.nextLine();
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, partesModificadas);
-		    }
-		    case "metahumano": {
+		        break;
+		    case "metahumano": 
 		        System.out.print("Causa dos poderes do meta-humano: "); String causaPoderes = entrada.nextLine();
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, causaPoderes);
-		    }
+		        break;
 		}
 
 		
