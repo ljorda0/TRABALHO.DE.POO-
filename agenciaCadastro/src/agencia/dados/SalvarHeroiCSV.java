@@ -33,7 +33,7 @@ public class SalvarHeroiCSV {
                 linhaBase += ",Mutante," + m.getIdadePoderes();
             } else if (heroi instanceof Alienigena) {
                 Alienigena a = (Alienigena) heroi;
-                linhaBase += ",Alienigena," + a.getPlanetaNatal() + a.getCausaDaVinda();
+                linhaBase += ",Alienigena," + a.getPlanetaNatal() +","+ a.getCausaDaVinda();
             } else if (heroi instanceof Ciborgue) {
                 Ciborgue c = (Ciborgue) heroi;
                 linhaBase += ",Tecnologico," + c.getModificacoes();
