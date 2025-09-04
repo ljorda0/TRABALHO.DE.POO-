@@ -23,6 +23,7 @@ public class Main {
 			System.out.println ("2) Cadastrar Vilao");
 			System.out.println ("3) Listar Heróis");
 			System.out.println ("4) Listar Vilões");
+			System.out.println ("5) Fazer Missão");
 			System.out.println ("0) sair");
 			System.out.println ("Escolha: ");
 			String op = entrada.nextLine().trim();
@@ -33,15 +34,18 @@ public class Main {
 					case "2" -> cadastrarVilao();
 					case "3" -> {
 						agencia.getHerois().forEach(System.out::println);
+						System.out.println("\nPressione ENTER para continuar...");
 						entrada.nextLine();
 					}
 					case "4" -> {
 						agencia.getViloes().forEach(System.out::println);
+						System.out.println("\nPressione ENTER para continuar...");
 						entrada.nextLine();
 					}
 					case "0" -> {System.out.println("Até mais!"); return; }
 					default -> System.out.println("Opçao inválida!");
 				}
+				
 			} catch (Exception e) {
 				System.out.println(" Erro: "+ e.getMessage()); 
 			}
@@ -51,6 +55,7 @@ public class Main {
 	//Cadastro HERÓI
 	
 	private static void cadastrarHeroi() {
+		System.out.println("=== Cadastro de Heroi ===");
 		System.out.print("Nome: "); String nome = entrada.nextLine();
 		System.out.print("Tipo: "); String tipo = entrada.nextLine();
 		System.out.print("Cidade: "); String cidade = entrada.nextLine();
@@ -63,7 +68,7 @@ public class Main {
 		Heroi heroi = switch (tipo.toLowerCase()) {
 		    case "mutante" -> {
 		        System.out.print("Idade de descoberta dos poderes: ");
-		        int idadeDescobertaPoderes = entrada.nextInt();
+		        int idadeDescobertaPoderes = Integer.parseInt(entrada.nextLine());
 		        yield new Mutante(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
 		    }
 		    case "alienigena" -> {
@@ -76,8 +81,7 @@ public class Main {
 		        yield new Ciborgue(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, partesModificadas);
 		    }
 		    case "metahumano" -> {
-		        System.out.print("Causa dos poderes do meta-humano: ");
-		        String causaPoderes = entrada.nextLine();
+		        System.out.print("Causa dos poderes do meta-humano: "); String causaPoderes = entrada.nextLine();
 		        yield new MetaHumano(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaPoderes);
 		    }
 		    default -> null;
@@ -85,7 +89,7 @@ public class Main {
 
 		if (heroi != null) {
 		    agencia.adicionarHeroi(heroi);
-		    System.out.println("Herói cadastrado com sucesso: " + heroi);
+		    System.out.println("Herói cadastrado com sucesso: ");
 		} else {
 		    System.out.println("Tipo inválido! Não foi possível cadastrar.");
 		}
@@ -95,6 +99,7 @@ public class Main {
 	//Cadastro VILÃO
 	
 	private static void cadastrarVilao() {
+		System.out.println("=== Cadastro de Vilao ===");
 		System.out.print("Nome: "); String nome = entrada.nextLine();
 		System.out.print("Cidade: "); String localidade = entrada.nextLine();
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
@@ -104,12 +109,8 @@ public class Main {
 		Vilao vilao = new Vilao (nome, poder, sexo, localidade, nivelPoder);
 		
 		agencia.adicionarVilao(vilao);
-		
-		System.out.println("Vilão cadastrado com sucesso: " + vilao);
+		System.out.println("Vilão cadastrado com sucesso: ");
 		
 	}
-	
-		
-	
 	
 }

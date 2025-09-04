@@ -14,7 +14,6 @@ public class Agencia {
 				.anyMatch(x -> x.getNome().equalsIgnoreCase(h.getNome()));
 		if (duplicado) throw new IllegalArgumentException("Já existe herói com esse nome.");
 		herois.add(h);
-		
 	}
 	
 	public void adicionarVilao(Vilao v) {
@@ -25,13 +24,12 @@ public class Agencia {
 		viloes.add(v);
 	}
 	
-	public List<Heroi> getHerois(){
+	public List<Heroi> getHerois() {
 		return Collections.unmodifiableList(herois);
 	}
 	
-	public List<Vilao> getViloes(){
+	public List<Vilao> getViloes() {
 		return Collections.unmodifiableList(viloes);
-	
-		}
-	
 	}
+	
+}

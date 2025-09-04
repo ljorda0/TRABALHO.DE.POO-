@@ -16,7 +16,7 @@ public class Ciborgue extends Heroi{
     public void setModificacoes(String modificacoes) {
         this.modificacoes = modificacoes;
     }
-    
+
     @Override
     public String toString(){
         return super.toString() +
