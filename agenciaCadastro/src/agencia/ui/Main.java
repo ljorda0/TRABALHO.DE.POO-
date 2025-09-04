@@ -24,7 +24,7 @@ public class Main {
 			System.out.println ("3) Listar Heróis");
 			System.out.println ("4) Listar Vilões");
 			System.out.println ("5) Fazer Missão");
-			System.out.println ("0) sair");
+			System.out.println ("0) Sair");
 			System.out.println ("Escolha: ");
 			String op = entrada.nextLine().trim();
 			
