@@ -54,12 +54,12 @@ public class Fachada {
 
     //Listar heróis
     public List<Heroi> listarHerois() {
-        return agencia.getHerois();
+        return agencia.listarHerois();
     }
 
     //Listar viloes
     public List<Vilao> listarViloes() {
-        return agencia.getViloes();
+        return agencia.listarViloes();
     }
     
     public void criarMissao(String nomeHeroi, String nomeVilao, String cidade) {
@@ -101,7 +101,7 @@ public class Fachada {
 
     // Método auxiliar para buscar vilão pelo nome
     private Vilao buscarVilaoPorNome(String nome) {
-        return agencia.getViloes().stream()
+        return agencia.listarViloes().stream()
                 .filter(v -> v.getNome().equalsIgnoreCase(nome))
                 .findFirst()
                 .orElse(null);
@@ -110,7 +110,7 @@ public class Fachada {
     
     // Método auxiliar para buscar herói pelo nome
     private Heroi buscarHeroiPorNome(String nome) {
-        return agencia.getHerois().stream()
+        return agencia.listarHerois().stream()
                 .filter(h -> h.getNome().equalsIgnoreCase(nome))
                 .findFirst()
                 .orElse(null);
