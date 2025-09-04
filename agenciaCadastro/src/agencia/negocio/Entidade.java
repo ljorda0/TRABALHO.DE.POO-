@@ -45,7 +45,11 @@ public abstract class Entidade {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+<<<<<<< Updated upstream
 
+=======
+	
+>>>>>>> Stashed changes
     public String getSexo() {
 		return sexo;
 	}
@@ -53,9 +57,12 @@ public abstract class Entidade {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+<<<<<<< Updated upstream
 	
 	// Verifica se duas entidades são iguais (baseado no nome, habilidades e sexo)
 	// Retorna true se as entidades forem iguais
+=======
+>>>>>>> Stashed changes
 
 	@Override
     public boolean equals(Object obj){
