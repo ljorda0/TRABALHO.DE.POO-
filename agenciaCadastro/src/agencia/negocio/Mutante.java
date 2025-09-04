@@ -17,18 +17,9 @@ public class Mutante extends Heroi{
         this.idadePoderes = idadePoderes;
     }
 
-    public String getCidade() {
-        return localidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.localidade = cidade;
-    }
-
     @Override
     public String toString(){
         return super.toString() +
-                "\nCidade: "+localidade+
                 "\nIdade do surgimento dos poderes: "+idadePoderes;
     }
 }

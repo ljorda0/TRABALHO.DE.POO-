@@ -9,14 +9,6 @@ public class MetaHumano extends Heroi{
         this.causaPoderes = causaPoderes;
     }
 
-    public String getCidade() {
-        return localidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.localidade = cidade;
-    }
-
     public String getCausaPoderes() {
         return causaPoderes;
     }
@@ -24,10 +16,10 @@ public class MetaHumano extends Heroi{
     public void setCausaPoderes(String causaPoderes) {
         this.causaPoderes = causaPoderes;
     }
+    
     @Override
     public String toString(){
         return super.toString() +
-                "\nCidade: " + localidade +
                 "\nCausa: " + causaPoderes;
     }
 }

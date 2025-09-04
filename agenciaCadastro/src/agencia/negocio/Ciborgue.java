@@ -3,17 +3,10 @@ package agencia.negocio;
 public class Ciborgue extends Heroi{
     // inserir quais partes do corpo foram modificadas ou o0s upgrades tecnologicos.
     private String modificacoes;
+    
     public Ciborgue(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String modificacoes) {
         super(nome, habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
         this.modificacoes = modificacoes;
-    }
-
-    public String getCidade() {
-        return localidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.localidade = cidade;
     }
 
     public String getModificacoes() {
@@ -23,10 +16,10 @@ public class Ciborgue extends Heroi{
     public void setModificacoes(String modificacoes) {
         this.modificacoes = modificacoes;
     }
+    
     @Override
     public String toString(){
-        return super.toString()
-                +"\nCidade: "+localidade+
+        return super.toString() +
                 "\nModificacoes tecnologicas: "+modificacoes;
     }
 }

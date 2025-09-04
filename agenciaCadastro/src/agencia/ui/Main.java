@@ -45,7 +45,6 @@ public class Main {
 			} catch (Exception e) {
 				System.out.println(" Erro: "+ e.getMessage()); 
 			}
-			
 		}
 	}
 	
@@ -54,42 +53,32 @@ public class Main {
 	private static void cadastrarHeroi() {
 		System.out.print("Nome: "); String nome = entrada.nextLine();
 		System.out.print("Tipo: "); String tipo = entrada.nextLine();
+		System.out.print("Cidade: "); String cidade = entrada.nextLine();
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
 		System.out.print("Sexo: "); String sexo = entrada.nextLine();
 		System.out.print("Nivel de poder (1 a 5): "); int nivelPoder = Integer.parseInt(entrada.nextLine());
 		System.out.print("Nivel de Ameaça (0 a 5): "); int nivelAmeaca = Integer.parseInt(entrada.nextLine());
-		String localidade;
 		
 		//modificações nas clases de heróis
 		Heroi heroi = switch (tipo.toLowerCase()) {
 		    case "mutante" -> {
-		        System.out.print("Cidade: ");
-		        localidade = entrada.nextLine();
 		        System.out.print("Idade de descoberta dos poderes: ");
 		        int idadeDescobertaPoderes = entrada.nextInt();
-		        entrada.nextLine();
-		        yield new Mutante(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
+		        yield new Mutante(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, idadeDescobertaPoderes);
 		    }
-		    case "alienigina" -> {
-		        System.out.print("Planeta natal: ");
-		        localidade = entrada.nextLine();
-		        System.out.print("Causa da vinda do alien: ");
-		        String causaVinda = entrada.nextLine();
-		        yield new Alienigena(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaVinda);
+		    case "alienigena" -> {
+		        System.out.print("Planeta natal: "); String planetaNatal = entrada.nextLine();
+		        System.out.print("Causa da vinda do alien: "); String causaVinda = entrada.nextLine();
+		        yield new Alienigena(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaVinda, planetaNatal);
 		    }
 		    case "ciborgue" -> {
-		        System.out.print("Cidade: ");
-		        localidade = entrada.nextLine();
-		        System.out.print("Partes modificadas do corpo do ciborgue: ");
-		        String partesModificadas = entrada.nextLine();
-		        yield new Ciborgue(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, partesModificadas);
+		        System.out.print("Partes modificadas do corpo do ciborgue: "); String partesModificadas = entrada.nextLine();
+		        yield new Ciborgue(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, partesModificadas);
 		    }
 		    case "metahumano" -> {
-		        System.out.print("Cidade: ");
-		        localidade = entrada.nextLine();
 		        System.out.print("Causa dos poderes do meta-humano: ");
 		        String causaPoderes = entrada.nextLine();
-		        yield new MetaHumano(nome, poder, sexo, localidade, nivelAmeaca, nivelPoder, causaPoderes);
+		        yield new MetaHumano(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaPoderes);
 		    }
 		    default -> null;
 		};

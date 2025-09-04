@@ -4,15 +4,15 @@ public class Heroi {
     protected String nome;
     protected String habilidades;
     protected String sexo;
-    protected String localidade;
-    protected int nivelAmeaca;
+    protected String cidade;
+	protected int nivelAmeaca;
     protected int nivelPoder;
 
-    public Heroi(String nome, String habilidades, String sexo, String localidade, int nivelAmeaca, int nivelPoder) {
+    public Heroi(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder) {
         this.nome = nome;
         this.habilidades = habilidades;
         this.sexo = sexo;
-        this.localidade = localidade;
+        this.cidade = cidade;
         this.nivelAmeaca = nivelAmeaca;
         this.nivelPoder = nivelPoder;
     }
@@ -32,15 +32,7 @@ public class Heroi {
     public void setNivelAmeaca(int nivelAmeaca) {
         this.nivelAmeaca = nivelAmeaca;
     }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
+    
     public String getHabilidades() {
         return habilidades;
     }
@@ -52,10 +44,16 @@ public class Heroi {
     public String getNome() {
         return nome;
     }
+    
+    public String getCidade() {
+		return cidade;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+    
+    
 
     @Override
     public boolean equals(Object obj){
@@ -70,7 +68,8 @@ public class Heroi {
     public String toString(){
         return "Nome: "+nome+
                "\nHabilidades: "+habilidades+
-               "\nSexo:  "+sexo+
+               "\nSexo: "+sexo+
+               "\nCidade: "+cidade+
                "\nNivel de ameaca: "+nivelAmeaca+
                 "\nNivel de poder: "+nivelPoder;
     }
