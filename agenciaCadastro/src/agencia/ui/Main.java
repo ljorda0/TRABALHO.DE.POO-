@@ -42,6 +42,9 @@ public class Main {
 						System.out.println("\nPressione ENTER para continuar...");
 						entrada.nextLine();
 					}
+					case "5" -> {
+						criarMissao();
+					}
 					case "0" -> {System.out.println("Até mais!"); return; }
 					default -> System.out.println("Opçao inválida!");
 				}
@@ -49,6 +52,8 @@ public class Main {
 			} catch (Exception e) {
 				System.out.println(" Erro: "+ e.getMessage()); 
 			}
+			
+			System.out.println("\n\n\n\n\n\n\n\n");
 		}
 	}
 	
@@ -85,9 +90,6 @@ public class Main {
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, causaPoderes);
 		        break;
 		}
-
-		
-		
 	}
 	
 	//Cadastro VILÃO
@@ -104,5 +106,15 @@ public class Main {
 		System.out.println("Vilão cadastrado com sucesso: ");
 		
 	}
+	
+	//Inicio de uma missão
+	
+	private static void criarMissao() {
+		System.out.println("Nome do héroi: "); String nomeHeroi = entrada.nextLine();
+		System.out.println("Nome do vilão: "); String nomeVilao = entrada.nextLine();
+		System.out.println("Nome da cidade: "); String nomeCidade = entrada.nextLine();
+		fachada.criarMissao(nomeHeroi, nomeVilao, nomeCidade);
+	}
+	
 	
 }

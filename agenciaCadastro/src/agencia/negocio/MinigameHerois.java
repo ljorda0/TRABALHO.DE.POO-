@@ -29,12 +29,12 @@ public class MinigameHerois {
             System.out.println(h.getNome() + ": " + vidaH + " HP");
             System.out.println(v.getNome() + ": " + vidaV + " HP");
 
-            // Turno do jogador 1
+            // Turno do herói
             System.out.println("\nTurno de " + h.getNome());
             System.out.println("1 - Atacar\n2 - Defender\n3 - Descansar");
             int acao1 = sc.nextInt();
 
-            // Turno do jogador 2
+            // Turno do vião
             int acao2 = rand.nextInt(3) + 1; // CPU joga aleatório
             System.out.println("Oponente escolheu a opção " + acao2);
 
