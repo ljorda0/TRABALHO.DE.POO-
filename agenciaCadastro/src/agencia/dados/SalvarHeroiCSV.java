@@ -39,10 +39,10 @@ public class SalvarHeroiCSV {
                 linhaBase += ",Alienigena," + a.getPlanetaNatal() +","+ a.getCausaDaVinda();
             } else if (heroi instanceof Ciborgue) {
                 Ciborgue c = (Ciborgue) heroi;
-                linhaBase += ",Tecnologico," + c.getModificacoes();
+                linhaBase += ",Ciborgue," + c.getModificacoes();
             } else if (heroi instanceof MetaHumano) {
                 MetaHumano mh = (MetaHumano) heroi;
-                linhaBase += ",Mistico," + mh.getCausaPoderes();
+                linhaBase += ",MetaHumano," + mh.getCausaPoderes();
             }
 
             out.println(linhaBase);

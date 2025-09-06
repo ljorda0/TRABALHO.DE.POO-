@@ -60,9 +60,9 @@ public class Agencia {
     // Retorna a lista de heróis carregada do CSV
     public List<Heroi> listarHerois() {
     	try {
-        return Collections.unmodifiableList(salvarHeroi.lerHeroi());
-    }	catch (Exception e) {
-    	throw new RuntimeException("Erro ao carregar herói: " + e.getMessage(), e);
+    		return Collections.unmodifiableList(salvarHeroi.lerHeroi());
+    	} catch (Exception e) {
+    		throw new RuntimeException("Erro ao carregar herói: " + e.getMessage(), e);
     }
 }
 

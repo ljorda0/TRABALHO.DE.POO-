@@ -71,15 +71,15 @@ public abstract class Entidade {
 	@Override
     public boolean equals(Object obj){
         if(obj == this){return true;}
-        if(!(obj instanceof Heroi h)){return false;}
-        return nome.equals(h.nome) &&
-               habilidades.equals(h.habilidades) &&
-               sexo.equals(h.sexo);
+        if(!(obj instanceof Entidade e)){return false;}
+        return nome.equals(e.nome) &&
+               habilidades.equals(e.habilidades) &&
+               sexo.equals(e.sexo);
     }
 
     @Override
     public String toString(){
-        return "Nome: "+nome+
+        return "\nNome: "+nome+
                "\nHabilidades: "+habilidades+
                "\nSexo: "+sexo+
                "\nCidade: "+cidade+
