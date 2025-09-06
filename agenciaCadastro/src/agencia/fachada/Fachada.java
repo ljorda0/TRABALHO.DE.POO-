@@ -3,14 +3,9 @@ package agencia.fachada;
 import agencia.negocio.Agencia;
 import agencia.negocio.Heroi;
 import agencia.negocio.Vilao;
-import agencia.negocio.Alienigena;
-import agencia.negocio.Ciborgue;
-import agencia.negocio.MetaHumano;
-import agencia.negocio.Mutante;
 import agencia.negocio.MinigameHerois;
 import agencia.negocio.Missao;
 import java.util.List;
-import java.util.ArrayList;
 
 public class Fachada {
     private Agencia agencia;
@@ -19,31 +14,25 @@ public class Fachada {
         this.agencia = new Agencia();
     }
 
-    public void cadastrarHeroi(Heroi heroi){
-        agencia.adicionarHeroi(heroi);
+    public void cadastrarHeroi(String nome,  String tipo, String cidade, String poder, String sexo, 
+            int nivelPoder, int nivelAmeaca, Object... args){
+        agencia.adicionarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, args);
     }
 
-    public void cadastrarVilao(Vilao vilao){
-        agencia.adicionarVilao(vilao);
+    public void cadastrarVilao(String nome, String cidade, String poder, String sexo, int nivelPoder){
+        agencia.adicionarVilao(nome, cidade, poder, sexo, nivelPoder);
     }
 
     public List<Heroi> listarHerois(){
         return agencia.listarHerois();
     }
+    
+    public List<Vilao> listarViloes(){
+        return agencia.listarViloes();
+    }
 
-    public void criarMissao(Heroi heroi, Vilao vilao){
-        if(!(agencia.listarHerois().contains(heroi))){
-            throw new IllegalArgumentException("Heroi nao encontrado na agencia!");
-        }
-        if(!(agencia.listarViloes().contains(vilao))){
-            throw new IllegalArgumentException("Vilao nao encontrado na agencia!");
-        }
-
-        Missao missao = new  Missao(heroi, vilao, heroi.getCidade());
-        System.out.println(missao);
-
-        MinigameHerois minigame = new MinigameHerois(heroi, vilao);
-        minigame.iniciar();
+    public void criarMissao(String nomeHeroi, String nomeVilao){
+        agencia.criarMissao(nomeHeroi, nomeVilao);
     }
 
 

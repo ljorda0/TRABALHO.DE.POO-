@@ -112,8 +112,7 @@ public class Main {
 	private static void criarMissao() {
 		System.out.println("Nome do héroi: "); String nomeHeroi = entrada.nextLine();
 		System.out.println("Nome do vilão: "); String nomeVilao = entrada.nextLine();
-		System.out.println("Nome da cidade: "); String nomeCidade = entrada.nextLine();
-		fachada.criarMissao(nomeHeroi, nomeVilao, nomeCidade);
+		fachada.criarMissao(nomeHeroi, nomeVilao);
 	}
 	
 	

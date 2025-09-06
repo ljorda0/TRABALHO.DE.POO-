@@ -7,36 +7,35 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import agencia.negocio.Vilao;
 
-import agencia.negocio.Heroi;
-
-public class salvarHeroi{
-    public void inserirHeroi(Heroi heroi){
-        ArrayList<Heroi> herois = this.lerHeroi();
-        if(herois == null){
-            herois = new ArrayList();
+public class SalvarVilao {
+    public void inserirVilao(Vilao vilao){
+        ArrayList<Vilao> viloes = this.lerVilao();
+        if(viloes == null){
+            viloes = new ArrayList();
         }
-        herois.add(heroi);
-        File file = new File("heroi.bin");
+        viloes.add(vilao);
+        File file = new File("vilao.bin");
         FileOutputStream fileOut;
         try{
             fileOut = new FileOutputStream(file);
             ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            objOut.writeObject(herois);
+            objOut.writeObject(viloes);
         }catch(FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-	private ArrayList<Heroi> lerHeroi(){
-        ArrayList<Heroi> heroi = null;
-        File file = new File("heroi.bin");
+    private ArrayList<Vilao> lerVilao(){
+        ArrayList<Vilao> vilao = null;
+        File file = new File("vilao.bin");
         FileInputStream fileIn;
         try{
             fileIn = new FileInputStream(file);
             ObjectInputStream objIn = new ObjectInputStream(fileIn);
-            heroi = (ArrayList<Heroi>) objIn.readObject();
+            vilao = (ArrayList<Vilao>) objIn.readObject();
         }catch(FileNotFoundException e){
             e.printStackTrace();
         }catch(IOException e){
@@ -44,6 +43,7 @@ public class salvarHeroi{
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }
-        return heroi;
+        return vilao;
     }
+
 }
