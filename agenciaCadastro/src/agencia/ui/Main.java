@@ -101,7 +101,7 @@ public class Main {
 		System.out.print("Poder Principal: "); String poder = entrada.nextLine();
 		System.out.print("Sexo: "); String sexo = entrada.nextLine();
 		System.out.print("Nivel de poder (1 a 5): "); int nivelPoder = Integer.parseInt(entrada.nextLine());
-		 		
+
 		fachada.cadastrarVilao(nome, localidade, poder, sexo, nivelPoder);
 		System.out.println("Vilão cadastrado com sucesso: ");
 		
