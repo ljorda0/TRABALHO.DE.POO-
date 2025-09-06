@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Fachada {
     private Agencia agencia;
 
-    public AgenciaFachada(){
+    public Fachada(){
         this.agencia = new Agencia();
     }
 
