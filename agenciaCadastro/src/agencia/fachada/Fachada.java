@@ -27,11 +27,11 @@ public class Fachada {
         agencia.adicionarVilao(vilao);
     }
 
-    public void criarMissao(Heroi heroi, Vilao vilao){
-        if(!agencia.ListarHerois().contains(heroi)){
+    public void iniciarMissao(Heroi heroi, Vilao vilao){
+        if(!(agencia.ListarHerois().contains(heroi))){
             throw new IllegalArgumentExeption("Heroi nao encontrado na agencia!");
         }
-        if(!agencia.ListarViloes().contains(vilao)){
+        if(!(agencia.ListarViloes().contains(vilao))){
             throw new IllegalArgumentException("Vilao nao encontrado na agencia!");
         }
 
