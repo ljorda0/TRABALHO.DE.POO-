@@ -2,7 +2,6 @@ package agencia.negocio;
 
 import agencia.dados.SalvarHeroiCSV;
 import agencia.dados.SalvarVilaoCSV;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -34,11 +33,19 @@ public class Agencia {
 
     // Retorna a lista de heróis carregada do CSV
     public List<Heroi> listarHerois() {
+    	try {
         return Collections.unmodifiableList(salvarHeroi.lerHeroi());
+    }	catch (Exception e) {
+    	throw new RuntimeException("Erro ao carregar herói: " + e.getMessage(), e);
     }
+}
 
     // Retorna a lista de vilões carregada do CSV
     public List<Vilao> listarViloes() {
-        return Collections.unmodifiableList(salvarVilao.lerVilao());
+        try {
+            return Collections.unmodifiableList(salvarVilao.lerVilao());
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao carregar vilão: " + e.getMessage(), e);
+        }
     }
 }

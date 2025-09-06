@@ -40,6 +40,6 @@ public class Fachada {
 
         MinigameHerois minigame = new MinigameHerois(heroi, vilao);
         minigame.iniciar();
-    }
+  }
 
 }
