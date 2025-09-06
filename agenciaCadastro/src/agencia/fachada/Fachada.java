@@ -27,6 +27,10 @@ public class Fachada {
         agencia.adicionarVilao(vilao);
     }
 
+    public List<Heroi> listarHerois(){
+        return agencia.listarHerois();
+    }
+
     public void criarMissao(Heroi heroi, Vilao vilao){
         if(!(agencia.listarHerois().contains(heroi))){
             throw new IllegalArgumentException("Heroi nao encontrado na agencia!");
@@ -41,5 +45,7 @@ public class Fachada {
         MinigameHerois minigame = new MinigameHerois(heroi, vilao);
         minigame.iniciar();
     }
+
+
 
 }
