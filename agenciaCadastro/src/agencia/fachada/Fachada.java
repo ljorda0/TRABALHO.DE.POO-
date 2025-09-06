@@ -19,15 +19,15 @@ public class Fachada {
         this.agencia = new Agencia();
     }
 
-    public void adicionarHeroi(Heroi heroi){
+    public void cadastrarHeroi(Heroi heroi){
         agencia.adicionarHeroi(heroi);
     }
 
-    public void adicionarVilao(Vilao vilao){
+    public void cadastrarVilao(Vilao vilao){
         agencia.adicionarVilao(vilao);
     }
 
-    public void iniciarMissao(Heroi heroi, Vilao vilao){
+    public void criarMissao(Heroi heroi, Vilao vilao){
         if(!(agencia.listarHerois().contains(heroi))){
             throw new IllegalArgumentException("Heroi nao encontrado na agencia!");
         }
