@@ -5,7 +5,7 @@ import agencia.negocio.Ciborgue;
 import agencia.negocio.Heroi;
 import agencia.negocio.MetaHumano;
 import agencia.negocio.Mutante;
-
+import agencia.negocio.StringVaziaException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,9 @@ public class SalvarHeroiCSV {
     private static final String FILE_NAME = "herois.csv";
 
     public void inserirHeroi(Heroi heroi) {
+    	if(heroi == null) {
+    		throw new StringVaziaException("herói");
+    	}
         try (FileWriter fw = new FileWriter(FILE_NAME, true);
              BufferedWriter bw = new BufferedWriter(fw);
              PrintWriter out = new PrintWriter(bw)) {

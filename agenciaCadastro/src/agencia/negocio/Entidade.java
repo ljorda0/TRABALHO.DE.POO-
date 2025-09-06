@@ -11,11 +11,22 @@ public abstract class Entidade {
     protected int nivelPoder;
     
     public Entidade (String nome, String habilidades, String sexo, String cidade, int nivelPoder) {
+    	validarString(nome, "nome");
+    	validarString(habilidades, "habilidades");
+    	validarString(sexo, "sexo");
+    	validarString(cidade, "cidade");
+    	
         this.nome = nome;
         this.habilidades = habilidades;
         this.sexo = sexo;
         this.cidade = cidade;
         this.nivelPoder = nivelPoder;
+    }
+    
+    protected void validarString(String campo, String nomeCampo) {
+    	if (campo == null || campo.trim().isEmpty()) {
+    		throw new StringVaziaException(nomeCampo);
+    	}
     }
 
     public int getNivelPoder() {

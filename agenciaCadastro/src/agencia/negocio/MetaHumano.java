@@ -7,6 +7,7 @@ public class MetaHumano extends Heroi{
 
     public MetaHumano(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String causaPoderes) {
         super(nome, habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
+        validarString(causaPoderes, "causa dos poderes");
         this.causaPoderes = causaPoderes;
     }
 
