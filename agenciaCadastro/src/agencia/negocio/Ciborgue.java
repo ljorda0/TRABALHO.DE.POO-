@@ -8,6 +8,7 @@ public class Ciborgue extends Heroi{
     
     public Ciborgue(String nome, String habilidades, String sexo, String cidade, int nivelAmeaca, int nivelPoder, String modificacoes) {
         super(nome, habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
+        validarString(modificacoes, "modificações");
         this.modificacoes = modificacoes;
     }
 

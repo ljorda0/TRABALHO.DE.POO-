@@ -8,6 +8,9 @@ public class Alienigena extends Heroi{
 
     public Alienigena(String nome, String habilidades, String sexo, String cidade,int nivelAmeaca, int nivelPoder, String causaDaVinda,String planetaNatal){
         super(nome, habilidades, sexo, cidade, nivelAmeaca, nivelPoder);
+        validarString(causaDaVinda, "causa da vinda");
+        validarString(planetaNatal, "planeta natal");
+        
         this.causaDaVinda = causaDaVinda;
         this.planetaNatal = planetaNatal;
     }
