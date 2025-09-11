@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String args[]) {
 		while (true) {
 			
-			System.out.println("\n=== Agencia Interplanetária (Somente cadastro)===");
+			System.out.println("\n=== Agencia Interplanetária ===");
 			System.out.println("1) Cadastrar Herói");
 			System.out.println ("2) Cadastrar Vilao");
 			System.out.println ("3) Listar Heróis");
@@ -89,6 +89,8 @@ public class Main {
 		        System.out.print("Causa dos poderes do meta-humano: "); String causaPoderes = entrada.nextLine();
 		        fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca, causaPoderes);
 		        break;
+		    default: 
+		    	fachada.cadastrarHeroi(nome, tipo, cidade, poder, sexo, nivelPoder, nivelAmeaca);
 		}
 	}
 	

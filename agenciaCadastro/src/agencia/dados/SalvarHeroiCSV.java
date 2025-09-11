@@ -72,20 +72,20 @@ public class SalvarHeroiCSV {
                 switch (classe) {
                     case "Mutante":
                         int idadeDescoberta = Integer.parseInt(dados[7]);
-                        h = new Mutante(nome, cidade, poder, sexo, nivelPoder, nivelAmeaca, idadeDescoberta);
+                        h = new Mutante(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, idadeDescoberta);
                         break;
                     case "Alienigena":
                         String planeta = dados[7];
                         String motivo = dados[8];
-                        h = new Alienigena(nome, cidade, poder, sexo, nivelPoder, nivelAmeaca, motivo, planeta);
+                        h = new Alienigena(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, motivo, planeta);
                         break;
                     case "Ciborgue":
                         String nivelTec = dados[7];
-                        h = new Ciborgue(nome, cidade, poder, sexo, nivelPoder, nivelAmeaca, nivelTec);
+                        h = new Ciborgue(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, nivelTec);
                         break;
                     case "MetaHumano":
                         String causaPoderes = dados[7];
-                        h = new MetaHumano(nome, cidade, poder, sexo, nivelPoder, nivelAmeaca, causaPoderes);
+                        h = new MetaHumano(nome, poder, sexo, cidade, nivelAmeaca, nivelPoder, causaPoderes);
                         break;
                 }
 
